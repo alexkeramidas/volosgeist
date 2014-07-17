@@ -4,7 +4,7 @@ class AreasController < ApplicationController
   # GET /areas
   # GET /areas.json
   def index
-    @areas = Area.all
+    @areas = Area.all.order("id ASC")
     render json: @areas
   end
 
