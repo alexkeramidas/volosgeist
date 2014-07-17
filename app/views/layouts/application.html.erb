@@ -320,18 +320,25 @@
         });
 
         polyvolosarea14.setMap(map);
+
+        var regions = '<%= j areas_url %>';
+
+        var areasjson = $(document).ready(function () {
+            return $.getJSON(regions, function (json) {
+                $.each(json, function (id, keys) {
+                    $.each(keys["points"], function (id, keys) {
+                        var marker = new google.maps.Marker({
+                            position: new google.maps.LatLng(keys.lat,keys.lon),
+                            map: map,
+                            title:"Volos!"
+                        });
+                    });
+                });
+            });
+        });
     }
 
     google.maps.event.addDomListener(window, 'load', initialize);
 
-    var regions = '<%= j areas_url %>';
-
-    var areasjson = $(document).ready(function () {
-        return $.getJSON(regions, function (json) {
-            $.each(json, function (key, value) {
-                console.log(value);
-            });
-        });
-    });
 </script>
 </html>
