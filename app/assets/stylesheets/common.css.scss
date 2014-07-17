@@ -17,6 +17,13 @@ body {
 }
 
 #map-canvas{
-  width: 100%;
+  width: 60%;
   height: 100%;
   float: left;}
+
+#data {
+  width: 40%;
+  height: 100%;
+  float: right;
+  background-color: red;
+}
