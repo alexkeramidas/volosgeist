@@ -8,22 +8,55 @@ body {
   width: 100%;
   height: 100%;
   min-height: 100%;
-  background-color: transparent;
+  background-color: rgb(173, 255, 47);
   color: #000;
   font-family: 'Century Gothic', verdana, arial, helvetica, sans-serif;
   font-size: 13px;
-  line-height: 18px;
   margin: 0px;
 }
 
 #map-canvas{
-  width: 60%;
+  width: 50%;
   height: 100%;
+  background-color: rgb(173, 255, 47);
   float: left;}
 
 #data {
-  width: 40%;
+  width: 49.6%;
   height: 100%;
   float: right;
   background-color: transparent;
+  padding-right: 5px;
+  line-height: 17px;
+}
+
+.header_title{
+  float: left;
+  width: 50%;
+  margin-left: 10px;
+}
+
+#area_pois {
+  float: left;
+  width: 40%;
+}
+
+.chart_title {
+  float: left;
+  width: 100%;
+  text-align: center;
+}
+
+.charts{
+  width: 98%;
+  height: 100%;
+  margin: auto;
+}
+
+#overall, #recognizable
+{
+  width: 50%;
+  height: 300px;
+  float: left;
+
 }

@@ -7,279 +7,182 @@
   <%=javascript_include_tag 'application' %>
   <%=csrf_meta_tags %>
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry"></script>
+  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 </head>
 
 <body>
 <%=yield %>
 </body>
 <script>
-    areas_Array = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    // Load the Visualization API and the piechart package.
+
+    google.load('visualization', '1.0', {'packages':['corechart']});
+
+    areas_Array = [0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    markers_Array = [0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+
     function initialize() {
-        var volosCenter = new google.maps.LatLng(39.359095, 22.949633);
-        var mapOptions = {
-            zoom: 14,
-            center: volosCenter
-        }
+
+        var volosCenter = new google.maps.LatLng(39.365265, 22.950403);
+        var mapOptions = { zoom: 14, center: volosCenter }
         var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
         var volosarea1 = [new google.maps.LatLng(39.356839, 22.918345), new google.maps.LatLng(39.359556, 22.923292), new google.maps.LatLng(39.356261, 22.927246), new google.maps.LatLng(39.350949, 22.924181), new google.maps.LatLng(39.346486, 22.931048), new google.maps.LatLng(39.344961, 22.930838), new google.maps.LatLng(39.344693, 22.922121), new google.maps.LatLng(39.344693, 22.918345), new google.maps.LatLng(39.356839, 22.918345)]
-        polyvolosarea1 = new google.maps.Polygon({
-            paths: volosarea1,
-            strokeColor: '#FF0000',
-            strokeOpacity: 0.8,
-            strokeWeight: 2,
-            fillColor: '#FF0000',
-            fillOpacity: 0.35
-        });
+        polyvolosarea1 = new google.maps.Polygon({paths: volosarea1,strokeColor: '#FF0000',strokeOpacity: 0.8,strokeWeight: 2,fillColor: '#FF0000',fillOpacity: 0.35 });
         google.maps.event.addListener(polyvolosarea1, "mouseover", function () {
-            this.setOptions({
-                fillColor: "#00FF00"
-            });
+            this.setOptions({fillColor: "#00FF00"});
             $("#data").css("background-color","#ADFF2F");
             $("#area_title").text("Volos Area 1");
-            $("#area_pois").text("Volos Area 1");
-
+            $("#area_pois").text(areas_Array[0]);
         });
 
         google.maps.event.addListener(polyvolosarea1, "mouseout", function () {
-            this.setOptions({
-                fillColor: "#FF0000"
-            });
+            this.setOptions({ fillColor: "#FF0000" });
             $("#data").css("background-color","transparent");
             $("#area_title").text("Area");
         });
         polyvolosarea1.setMap(map);
         var volosarea2 = [new google.maps.LatLng(39.359556, 22.923292), new google.maps.LatLng(39.367623, 22.918731), new google.maps.LatLng(39.371206, 22.920276), new google.maps.LatLng(39.368850, 22.933751), new google.maps.LatLng(39.366146, 22.931284), new google.maps.LatLng(39.363193, 22.930983), new google.maps.LatLng(39.358417, 22.932996), new google.maps.LatLng(39.356261, 22.927246), new google.maps.LatLng(39.359556, 22.923292)]
-        polyvolosarea2 = new google.maps.Polygon({
-            paths: volosarea2,
-            strokeColor: '#FF0000',
-            strokeOpacity: 0.8,
-            strokeWeight: 2,
-            fillColor: '#FF0000',
-            fillOpacity: 0.35
-        });
+        polyvolosarea2 = new google.maps.Polygon({paths: volosarea2, strokeColor: '#FF0000', strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#FF0000', fillOpacity: 0.35 });
 
         polyvolosarea2.setMap(map);
 
         google.maps.event.addListener(polyvolosarea2, "mouseover", function () {
-            this.setOptions({
-                fillColor: "#00FF00"
-            });
+            this.setOptions({fillColor: "#00FF00" });
             $("#data").css("background-color","#ADFF2F");
             $("#area_title").text("Volos Area 2");
+            $("#area_pois").text(areas_Array[1]);
         });
 
         google.maps.event.addListener(polyvolosarea2, "mouseout", function () {
-            this.setOptions({
-                fillColor: "#FF0000"
-            });
+            this.setOptions({fillColor: "#FF0000" });
             $("#data").css("background-color","transparent");
             $("#area_title").text("Area");
         });
 
         var volosarea3 = [new google.maps.LatLng(39.368850, 22.933751), new google.maps.LatLng(39.366146, 22.931284), new google.maps.LatLng(39.363193, 22.930983), new google.maps.LatLng(39.358417, 22.932996), new google.maps.LatLng(39.360691, 22.939063), new google.maps.LatLng(39.367192, 22.935811), new google.maps.LatLng(39.368850, 22.933751)]
-        polyvolosarea3 = new google.maps.Polygon({
-            paths: volosarea3,
-            strokeColor: '#FF0000',
-            strokeOpacity: 0.8,
-            strokeWeight: 2,
-            fillColor: '#FF0000',
-            fillOpacity: 0.35
-        });
+        polyvolosarea3 = new google.maps.Polygon({paths: volosarea3, strokeColor: '#FF0000', strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#FF0000', fillOpacity: 0.35 });
         google.maps.event.addListener(polyvolosarea3, "mouseover", function () {
-            this.setOptions({
-                fillColor: "#00FF00"
-            });
+            this.setOptions({fillColor: "#00FF00" });
             $("#data").css("background-color","#ADFF2F");
             $("#area_title").text("Volos Area 3");
+            $("#area_pois").text(areas_Array[2]);
         });
 
         google.maps.event.addListener(polyvolosarea3, "mouseout", function () {
-            this.setOptions({
-                fillColor: "#FF0000"
-            });
+            this.setOptions({fillColor: "#FF0000" });
             $("#data").css("background-color","transparent");
             $("#area_title").text("Area");
         });
         polyvolosarea3.setMap(map);
 
         var volosarea4 = [new google.maps.LatLng(39.368850, 22.933751), new google.maps.LatLng(39.375347, 22.945831), new google.maps.LatLng(39.370144, 22.954158), new google.maps.LatLng(39.366627, 22.950639), new google.maps.LatLng(39.370443, 22.943708), new google.maps.LatLng(39.367192, 22.935811), new google.maps.LatLng(39.368850, 22.933751)]
-        polyvolosarea4 = new google.maps.Polygon({
-            paths: volosarea4,
-            strokeColor: '#FF0000',
-            strokeOpacity: 0.8,
-            strokeWeight: 2,
-            fillColor: '#FF0000',
-            fillOpacity: 0.35
-        });
+        polyvolosarea4 = new google.maps.Polygon({paths: volosarea4, strokeColor: '#FF0000', strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#FF0000', fillOpacity: 0.35 });
         google.maps.event.addListener(polyvolosarea4, "mouseover", function () {
-            this.setOptions({
-                fillColor: "#00FF00"
-            });
+            this.setOptions({fillColor: "#00FF00" });
             $("#data").css("background-color","#ADFF2F");
             $("#area_title").text("Volos Area 4");
+            $("#area_pois").text(areas_Array[3]);
         });
 
         google.maps.event.addListener(polyvolosarea4, "mouseout", function () {
-            this.setOptions({
-                fillColor: "#FF0000"
-            });
+            this.setOptions({fillColor: "#FF0000" });
             $("#data").css("background-color","transparent");
             $("#area_title").text("Area");
         });
         polyvolosarea4.setMap(map);
 
         var volosarea5 = [new google.maps.LatLng(39.375347, 22.945831), new google.maps.LatLng(39.378663, 22.951996), new google.maps.LatLng(39.374600, 22.958214), new google.maps.LatLng(39.370144, 22.954158), new google.maps.LatLng(39.375347, 22.945831)]
-        polyvolosarea5 = new google.maps.Polygon({
-            paths: volosarea5,
-            strokeColor: '#FF0000',
-            strokeOpacity: 0.8,
-            strokeWeight: 2,
-            fillColor: '#FF0000',
-            fillOpacity: 0.35
-        });
+        polyvolosarea5 = new google.maps.Polygon({paths: volosarea5, strokeColor: '#FF0000', strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#FF0000', fillOpacity: 0.35 });
         google.maps.event.addListener(polyvolosarea5, "mouseover", function () {
-            this.setOptions({
-                fillColor: "#00FF00"
-            });
+            this.setOptions({fillColor: "#00FF00" });
             $("#data").css("background-color","#ADFF2F");
             $("#area_title").text("Volos Area 5");
+            $("#area_pois").text(areas_Array[4]);
         });
 
         google.maps.event.addListener(polyvolosarea5, "mouseout", function () {
-            this.setOptions({
-                fillColor: "#FF0000"
-            });
+            this.setOptions({fillColor: "#FF0000" });
             $("#data").css("background-color","transparent");
             $("#area_title").text("Area");
         });
         polyvolosarea5.setMap(map);
 
         var volosarea6 = [new google.maps.LatLng(39.378663, 22.951996), new google.maps.LatLng(39.380760, 22.955896), new google.maps.LatLng(39.384608, 22.952634), new google.maps.LatLng(39.386465, 22.958170), new google.maps.LatLng(39.385470, 22.962505), new google.maps.LatLng(39.380528, 22.965788), new google.maps.LatLng(39.374600, 22.958214), new google.maps.LatLng(39.378663, 22.951996)]
-        polyvolosarea6 = new google.maps.Polygon({
-            paths: volosarea6,
-            strokeColor: '#FF0000',
-            strokeOpacity: 0.8,
-            strokeWeight: 2,
-            fillColor: '#FF0000',
-            fillOpacity: 0.35
-        });
+        polyvolosarea6 = new google.maps.Polygon({paths: volosarea6, strokeColor: '#FF0000', strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#FF0000', fillOpacity: 0.35});
         google.maps.event.addListener(polyvolosarea6, "mouseover", function () {
-            this.setOptions({
-                fillColor: "#00FF00"
-            });
+            this.setOptions({fillColor: "#00FF00" });
             $("#data").css("background-color","#ADFF2F");
             $("#area_title").text("Volos Area 6");
+            $("#area_pois").text(areas_Array[5]);
         });
 
         google.maps.event.addListener(polyvolosarea6, "mouseout", function () {
-            this.setOptions({
-                fillColor: "#FF0000"
-            });
+            this.setOptions({fillColor: "#FF0000" });
             $("#data").css("background-color","transparent");
             $("#area_title").text("Area");
         });
         polyvolosarea6.setMap(map);
 
         var volosarea7 = [new google.maps.LatLng(39.380528, 22.965788), new google.maps.LatLng(39.381689, 22.972204), new google.maps.LatLng(39.373362, 22.972933), new google.maps.LatLng(39.370592, 22.964350), new google.maps.LatLng(39.374600, 22.958214)]
-        polyvolosarea7 = new google.maps.Polygon({
-            paths: volosarea7,
-            strokeColor: '#FF0000',
-            strokeOpacity: 0.8,
-            strokeWeight: 2,
-            fillColor: '#FF0000',
-            fillOpacity: 0.35
-        });
+        polyvolosarea7 = new google.maps.Polygon({paths: volosarea7, strokeColor: '#FF0000', strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#FF0000', fillOpacity: 0.35});
         google.maps.event.addListener(polyvolosarea7, "mouseover", function () {
-            this.setOptions({
-                fillColor: "#00FF00"
-            });
+            this.setOptions({fillColor: "#00FF00" });
             $("#data").css("background-color","#ADFF2F");
-            $("#area_title").text("Volos Area 6");
+            $("#area_title").text("Volos Area 7");
+            $("#area_pois").text(areas_Array[6]);
         });
 
         google.maps.event.addListener(polyvolosarea7, "mouseout", function () {
-            this.setOptions({
-                fillColor: "#FF0000"
-            });
+            this.setOptions({fillColor: "#FF0000" });
             $("#data").css("background-color","transparent");
             $("#area_title").text("Area");
         });
         polyvolosarea7.setMap(map);
 
         var volosarea8 = [new google.maps.LatLng(39.374600, 22.958214), new google.maps.LatLng(39.370592, 22.964350), new google.maps.LatLng(39.365353, 22.969314), new google.maps.LatLng(39.363023, 22.962183), new google.maps.LatLng(39.370144, 22.954158), new google.maps.LatLng(39.374600, 22.958214)]
-        polyvolosarea8 = new google.maps.Polygon({
-            paths: volosarea8,
-            strokeColor: '#FF0000',
-            strokeOpacity: 0.8,
-            strokeWeight: 2,
-            fillColor: '#FF0000',
-            fillOpacity: 0.35
-        });
+        polyvolosarea8 = new google.maps.Polygon({paths: volosarea8, strokeColor: '#FF0000', strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#FF0000', fillOpacity: 0.35 });
         google.maps.event.addListener(polyvolosarea8, "mouseover", function () {
-            this.setOptions({
-                fillColor: "#00FF00"
-            });
+            this.setOptions({fillColor: "#00FF00" });
             $("#data").css("background-color","#ADFF2F");
             $("#area_title").text("Volos Area 8");
+            $("#area_pois").text(areas_Array[7]);
         });
 
         google.maps.event.addListener(polyvolosarea8, "mouseout", function () {
-            this.setOptions({
-                fillColor: "#FF0000"
-            });
+            this.setOptions({fillColor: "#FF0000" });
             $("#data").css("background-color","transparent");
             $("#area_title").text("Area");
         });
         polyvolosarea8.setMap(map);
 
         var volosarea9 = [new google.maps.LatLng(39.366627, 22.950639), new google.maps.LatLng(39.370144, 22.954158), new google.maps.LatLng(39.363023, 22.962183), new google.maps.LatLng(39.360371, 22.962407), new google.maps.LatLng(39.366627, 22.950639)]
-        polyvolosarea9 = new google.maps.Polygon({
-            paths: volosarea9,
-            strokeColor: '#FF0000',
-            strokeOpacity: 0.8,
-            strokeWeight: 2,
-            fillColor: '#FF0000',
-            fillOpacity: 0.35
-        });
+        polyvolosarea9 = new google.maps.Polygon({paths: volosarea9, strokeColor: '#FF0000', strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#FF0000', fillOpacity: 0.35 });
         google.maps.event.addListener(polyvolosarea9, "mouseover", function () {
-            this.setOptions({
-                fillColor: "#00FF00"
-            });
+            this.setOptions({fillColor: "#00FF00" });
             $("#data").css("background-color","#ADFF2F");
             $("#area_title").text("Volos Area 9");
+            $("#area_pois").text(areas_Array[8]);
         });
 
         google.maps.event.addListener(polyvolosarea9, "mouseout", function () {
-            this.setOptions({
-                fillColor: "#FF0000"
-            });
+            this.setOptions({fillColor: "#FF0000" });
             $("#data").css("background-color","transparent");
             $("#area_title").text("Area");
         });
         polyvolosarea9.setMap(map);
 
         var volosarea10 = [new google.maps.LatLng(39.363023, 22.962183), new google.maps.LatLng(39.365353, 22.969314), new google.maps.LatLng(39.358183, 22.976109), new google.maps.LatLng(39.354719, 22.971543), new google.maps.LatLng(39.363023, 22.962183)]
-        polyvolosarea10 = new google.maps.Polygon({
-            paths: volosarea10,
-            strokeColor: '#FF0000',
-            strokeOpacity: 0.8,
-            strokeWeight: 2,
-            fillColor: '#FF0000',
-            fillOpacity: 0.35
-        });
+        polyvolosarea10 = new google.maps.Polygon({paths: volosarea10, strokeColor: '#FF0000', strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#FF0000', fillOpacity: 0.35 });
         google.maps.event.addListener(polyvolosarea10, "mouseover", function () {
-            this.setOptions({
-                fillColor: "#00FF00"
-            });
+            this.setOptions({fillColor: "#00FF00" });
             $("#data").css("background-color","#ADFF2F");
             $("#area_title").text("Volos Area 10");
+            $("#area_pois").text(areas_Array[9]);
         });
 
         google.maps.event.addListener(polyvolosarea10, "mouseout", function () {
-            this.setOptions({
-                fillColor: "#FF0000"
-            });
+            this.setOptions({fillColor: "#FF0000" });
             $("#data").css("background-color","transparent");
             $("#area_title").text("Area");
         });
@@ -287,26 +190,16 @@
         polyvolosarea10.setMap(map);
 
         var volosarea11 = [new google.maps.LatLng(39.360371, 22.962407), new google.maps.LatLng(39.363023, 22.962183), new google.maps.LatLng(39.354719, 22.971543), new google.maps.LatLng(39.349522, 22.964693), new google.maps.LatLng(39.360371, 22.962407)]
-        polyvolosarea11 = new google.maps.Polygon({
-            paths: volosarea11,
-            strokeColor: '#FF0000',
-            strokeOpacity: 0.8,
-            strokeWeight: 2,
-            fillColor: '#FF0000',
-            fillOpacity: 0.35
-        });
+        polyvolosarea11 = new google.maps.Polygon({paths: volosarea11, strokeColor: '#FF0000', strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#FF0000', fillOpacity: 0.35 });
         google.maps.event.addListener(polyvolosarea11, "mouseover", function () {
-            this.setOptions({
-                fillColor: "#00FF00"
-            });
+            this.setOptions({fillColor: "#00FF00" });
             $("#data").css("background-color","#ADFF2F");
             $("#area_title").text("Volos Area 11");
+            $("#area_pois").text(areas_Array[10]);
         });
 
         google.maps.event.addListener(polyvolosarea11, "mouseout", function () {
-            this.setOptions({
-                fillColor: "#FF0000"
-            });
+            this.setOptions({fillColor: "#FF0000" });
             $("#data").css("background-color","transparent");
             $("#area_title").text("Area");
         });
@@ -314,26 +207,16 @@
         polyvolosarea11.setMap(map);
 
         var volosarea12 = [new google.maps.LatLng(39.349522, 22.964693), new google.maps.LatLng(39.360371, 22.962407), new google.maps.LatLng(39.362415, 22.958562), new google.maps.LatLng(39.355487, 22.952778), new google.maps.LatLng(39.349522, 22.964693)]
-        polyvolosarea12 = new google.maps.Polygon({
-            paths: volosarea12,
-            strokeColor: '#FF0000',
-            strokeOpacity: 0.8,
-            strokeWeight: 2,
-            fillColor: '#FF0000',
-            fillOpacity: 0.35
-        });
+        polyvolosarea12 = new google.maps.Polygon({paths: volosarea12, strokeColor: '#FF0000', strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#FF0000', fillOpacity: 0.35 });
         google.maps.event.addListener(polyvolosarea12, "mouseover", function () {
-            this.setOptions({
-                fillColor: "#00FF00"
-            });
+            this.setOptions({fillColor: "#00FF00" });
             $("#data").css("background-color","#ADFF2F");
             $("#area_title").text("Volos Area 12");
+            $("#area_pois").text(areas_Array[11]);
         });
 
         google.maps.event.addListener(polyvolosarea12, "mouseout", function () {
-            this.setOptions({
-                fillColor: "#FF0000"
-            });
+            this.setOptions({fillColor: "#FF0000" });
             $("#data").css("background-color","transparent");
             $("#area_title").text("Area");
         });
@@ -341,26 +224,16 @@
         polyvolosarea12.setMap(map);
 
         var volosarea13 = [new google.maps.LatLng(39.366627, 22.950639), new google.maps.LatLng(39.359660, 22.944440), new google.maps.LatLng(39.361402, 22.940961), new google.maps.LatLng(39.360691, 22.939063), new google.maps.LatLng(39.367192, 22.935811), new google.maps.LatLng(39.370443, 22.943708), new google.maps.LatLng(39.366627, 22.950639)]
-        polyvolosarea13 = new google.maps.Polygon({
-            paths: volosarea13,
-            strokeColor: '#FF0000',
-            strokeOpacity: 0.8,
-            strokeWeight: 2,
-            fillColor: '#FF0000',
-            fillOpacity: 0.35
-        });
+        polyvolosarea13 = new google.maps.Polygon({paths: volosarea13, strokeColor: '#FF0000', strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#FF0000', fillOpacity: 0.35 });
         google.maps.event.addListener(polyvolosarea13, "mouseover", function () {
-            this.setOptions({
-                fillColor: "#00FF00"
-            });
+            this.setOptions({fillColor: "#00FF00" });
             $("#data").css("background-color","#ADFF2F");
             $("#area_title").text("Volos Area 13");
+            $("#area_pois").text(areas_Array[12]);
         });
 
         google.maps.event.addListener(polyvolosarea13, "mouseout", function () {
-            this.setOptions({
-                fillColor: "#FF0000"
-            });
+            this.setOptions({fillColor: "#FF0000" });
             $("#data").css("background-color","transparent");
             $("#area_title").text("Area");
         });
@@ -368,27 +241,17 @@
         polyvolosarea13.setMap(map);
 
         var volosarea14 = [new google.maps.LatLng(39.366627, 22.950639), new google.maps.LatLng(39.359660, 22.944440), new google.maps.LatLng(39.355487, 22.952778), new google.maps.LatLng(39.362415, 22.958562), new google.maps.LatLng(39.366627, 22.950639)]
-        polyvolosarea14 = new google.maps.Polygon({
-            paths: volosarea14,
-            strokeColor: '#FF0000',
-            strokeOpacity: 0.8,
-            strokeWeight: 2,
-            fillColor: '#FF0000',
-            fillOpacity: 0.35
-        });
+        polyvolosarea14 = new google.maps.Polygon({paths: volosarea14, strokeColor: '#FF0000', strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#FF0000', fillOpacity: 0.35 });
         google.maps.event.addListener(polyvolosarea14, "mouseover", function () {
-            this.setOptions({
-                fillColor: "#00FF00"
-            });
+            this.setOptions({fillColor: "#00FF00" });
             $("#data").css("background-color","#ADFF2F");
             $("#area_title").text("Volos Area 14");
+            $("#area_pois").text(areas_Array[13]);
 
         });
 
         google.maps.event.addListener(polyvolosarea14, "mouseout", function () {
-            this.setOptions({
-                fillColor: "#FF0000"
-            });
+            this.setOptions({fillColor: "#FF0000" });
             $("#data").css("background-color","transparent");
             $("#area_title").text("Area");
         });
@@ -401,40 +264,85 @@
             return $.getJSON(regions, function (json) {
                 $.each(json, function (id, keys) {
                     $.each(keys["points"], function (id, keys) {
-                        var marker = new google.maps.Marker({
-                            position: new google.maps.LatLng(keys.lat,keys.lon),
-                            map: map,
-                            title:"Poi!"
-                        });
-                        if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea1))
+                        if(keys.data.recognizability > 0.5){
+                            var marker = new google.maps.Marker({ position: new google.maps.LatLng(keys.lat,keys.lon), map: map, title:"Poi!" });
+                            if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea1))
+                                markers_Array[0] = markers_Array[0] + 1;
+                            if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea2))
+                                markers_Array[1] = markers_Array[1] + 1;
+                            if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea3))
+                                markers_Array[2] = markers_Array[2] + 1;
+                            if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea4))
+                                markers_Array[3] = markers_Array[3] + 1;
+                            if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea5))
+                                markers_Array[4] = markers_Array[4] + 1;
+                            if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea6))
+                                markers_Array[5] = markers_Array[5] + 1;
+                            if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea7))
+                                markers_Array[6] = markers_Array[6] + 1;
+                            if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea8))
+                                markers_Array[7] = markers_Array[7] + 1;
+                            if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea9))
+                                markers_Array[8] = markers_Array[8] + 1;
+                            if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea10))
+                                markers_Array[9] = markers_Array[9] + 1;
+                            if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea11))
+                                markers_Array[10] = markers_Array[10] + 1;
+                            if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea12))
+                                markers_Array[11] = markers_Array[11] + 1;
+                            if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea13))
+                                markers_Array[12] = markers_Array[12]+ 1;
+                            if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea14))
+                                markers_Array[13] = markers_Array[13] + 1;
+                        }
+                        if(google.maps.geometry.poly.containsLocation(new google.maps.LatLng(keys.lat,keys.lon), polyvolosarea1))
                             areas_Array[0] = areas_Array[0] + 1;
-                        if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea2))
+                        if(google.maps.geometry.poly.containsLocation(new google.maps.LatLng(keys.lat,keys.lon), polyvolosarea2))
                             areas_Array[1] = areas_Array[1] + 1;
-                        if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea3))
+                        if(google.maps.geometry.poly.containsLocation(new google.maps.LatLng(keys.lat,keys.lon), polyvolosarea3))
                             areas_Array[2] = areas_Array[2] + 1;
-                        if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea4))
+                        if(google.maps.geometry.poly.containsLocation(new google.maps.LatLng(keys.lat,keys.lon), polyvolosarea4))
                             areas_Array[3] = areas_Array[3] + 1;
-                        if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea5))
+                        if(google.maps.geometry.poly.containsLocation(new google.maps.LatLng(keys.lat,keys.lon), polyvolosarea5))
                             areas_Array[4] = areas_Array[4] + 1;
-                        if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea6))
+                        if(google.maps.geometry.poly.containsLocation(new google.maps.LatLng(keys.lat,keys.lon), polyvolosarea6))
                             areas_Array[5] = areas_Array[5] + 1;
-                        if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea7))
+                        if(google.maps.geometry.poly.containsLocation(new google.maps.LatLng(keys.lat,keys.lon), polyvolosarea7))
                             areas_Array[6] = areas_Array[6] + 1;
-                        if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea8))
+                        if(google.maps.geometry.poly.containsLocation(new google.maps.LatLng(keys.lat,keys.lon), polyvolosarea8))
                             areas_Array[7] = areas_Array[7] + 1;
-                        if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea9))
+                        if(google.maps.geometry.poly.containsLocation(new google.maps.LatLng(keys.lat,keys.lon), polyvolosarea9))
                             areas_Array[8] = areas_Array[8] + 1;
-                        if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea10))
+                        if(google.maps.geometry.poly.containsLocation(new google.maps.LatLng(keys.lat,keys.lon), polyvolosarea10))
                             areas_Array[9] = areas_Array[9] + 1;
-                        if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea11))
+                        if(google.maps.geometry.poly.containsLocation(new google.maps.LatLng(keys.lat,keys.lon), polyvolosarea11))
                             areas_Array[10] = areas_Array[10] + 1;
-                        if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea12))
+                        if(google.maps.geometry.poly.containsLocation(new google.maps.LatLng(keys.lat,keys.lon), polyvolosarea12))
                             areas_Array[11] = areas_Array[11] + 1;
-                        if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea13))
+                        if(google.maps.geometry.poly.containsLocation(new google.maps.LatLng(keys.lat,keys.lon), polyvolosarea13))
                             areas_Array[12] = areas_Array[12]+ 1;
-                        if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea14))
+                        if(google.maps.geometry.poly.containsLocation(new google.maps.LatLng(keys.lat,keys.lon), polyvolosarea14))
                             areas_Array[13] = areas_Array[13] + 1;
+
                     });
+                    // Create the data table.
+                    var data = new google.visualization.arrayToDataTable([['A1','A2','A3','A4','A5','A6','A7','A8','A9','A10','A11','A12','A13','A14'],areas_Array]);
+
+                    // Set chart options
+                    var options = { title: 'POI in Area'};
+
+                    // Instantiate and draw our chart, passing in some options.
+                    var chart = new google.visualization.ColumnChart(document.getElementById('overall'));
+                    chart.draw(data, options);
+                    // Create the data table.
+                    var data = new google.visualization.arrayToDataTable([['A1','A2','A3','A4','A5','A6','A7','A8','A9','A10','A11','A12','A13','A14'],markers_Array]);
+
+                    // Set chart options
+                    var options = { title: 'Recognizable POI in Area'};
+
+                    // Instantiate and draw our chart, passing in some options.
+                    var chart = new google.visualization.ColumnChart(document.getElementById('recognizable'));
+                    chart.draw(data, options);
                 });
             });
         });
