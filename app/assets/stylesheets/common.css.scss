@@ -4,6 +4,14 @@ html {
   margin: 0px;
 }
 
+h1{
+
+  font-size: 15px;
+}
+h2{
+
+  font-size: 13px;
+}
 body {
   width: 100%;
   height: 100%;
@@ -16,30 +24,38 @@ body {
 }
 
 #map-canvas{
-  width: 50%;
+  width: 60%;
   height: 100%;
   background-color: rgb(173, 255, 47);
   float: left;}
 
 #data {
-  width: 49.6%;
+  width: 39.6%;
   height: 100%;
   float: right;
   background-color: transparent;
   padding-right: 5px;
-  line-height: 17px;
+  line-height: 14px;
 }
 
-.header_title{
+.area_data, .poi_data, .votes_data{
+  width:33%;
+  display: block;
   float: left;
-  width: 50%;
-  margin-left: 10px;
+  text-align: center;
 }
 
-#area_pois {
+.chart_data, .total_votes_data{
+  width: 100%;
+  display: block;
   float: left;
-  width: 40%;
+  text-align: center;
 }
+
+#area_title, #area_pois, #area_votes {
+  width: 100%;
+}
+
 
 .chart_title {
   float: left;
@@ -49,14 +65,30 @@ body {
 
 .charts{
   width: 98%;
-  height: 100%;
+  height: 400px;
   margin: auto;
 }
 
 #overall, #recognizable
 {
-  width: 50%;
-  height: 300px;
+  width: 100%;
+  height: 200px;
   float: left;
+}
 
+.area_votes_title{
+  width: 100%;
+  float: left;
+  text-align: center;
+}
+
+.votes_title{
+  width: 100%;
+  margin-top: 10px;
+  text-align: center;
+}
+
+#summary, #rights, #wrongs {
+  width: 33%;
+  float: left;
 }

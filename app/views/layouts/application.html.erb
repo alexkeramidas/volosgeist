@@ -17,9 +17,12 @@
     // Load the Visualization API and the piechart package.
 
     google.load('visualization', '1.0', {'packages':['corechart']});
-
-    areas_Array = [0,0,0,0,0,0,0,0,0,0,0,0,0,0];
-    markers_Array = [0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    areas_Array = [['Area', 'Poi'],['A1',0],['A2',0],['A3',0],['A4',0],['A5',0],['A6',0],['A7',0],['A8',0],['A9',0],['A10',0],['A11',0],['A12',0],['A13',0],['A14',0]];
+    markers_Array = [['Area', 'Important Poi'],['A1',0],['A2',0],['A3',0],['A4',0],['A5',0],['A6',0],['A7',0],['A8',0],['A9',0],['A10',0],['A11',0],['A12',0],['A13',0],['A14',0]];
+    votes_Array = [['Area', 'Poi', 'Right', "Wrong", "Total"],['A1',0,0,0,0],['A2',0,0,0,0],['A3',0,0,0,0],['A4',0,0,0,0],['A5',0,0,0,0],['A6',0,0,0,0],['A7',0,0,0,0],['A8',0,0,0,0],['A9',0,0,0,0],['A10',0,0,0,0],['A11',0,0,0,0],['A12',0,0,0,0],['A13',0,0,0,0],['A14',0,0,0,0]];
+    total_votes = 0;
+    total_rights = 0;
+    total_wrongs = 0;
 
     function initialize() {
 
@@ -33,13 +36,20 @@
             this.setOptions({fillColor: "#00FF00"});
             $("#data").css("background-color","#ADFF2F");
             $("#area_title").text("Volos Area 1");
-            $("#area_pois").text(areas_Array[0]);
+            $("#area_pois").text(areas_Array[1][1]);
+            $("#area_rights").text("Rights:" + votes_Array[1][2]);
+            $("#area_wrongs").text("Wrongs:" + votes_Array[1][3]);
+            $("#area_summary").text("Total:" + votes_Array[1][4]);
         });
 
         google.maps.event.addListener(polyvolosarea1, "mouseout", function () {
             this.setOptions({ fillColor: "#FF0000" });
             $("#data").css("background-color","transparent");
             $("#area_title").text("Area");
+            $("#area_pois").text("");
+            $("#area_rights").text("Rights:");
+            $("#area_wrongs").text("Wrongs:");
+            $("#area_summary").text("Total:");
         });
         polyvolosarea1.setMap(map);
         var volosarea2 = [new google.maps.LatLng(39.359556, 22.923292), new google.maps.LatLng(39.367623, 22.918731), new google.maps.LatLng(39.371206, 22.920276), new google.maps.LatLng(39.368850, 22.933751), new google.maps.LatLng(39.366146, 22.931284), new google.maps.LatLng(39.363193, 22.930983), new google.maps.LatLng(39.358417, 22.932996), new google.maps.LatLng(39.356261, 22.927246), new google.maps.LatLng(39.359556, 22.923292)]
@@ -51,13 +61,20 @@
             this.setOptions({fillColor: "#00FF00" });
             $("#data").css("background-color","#ADFF2F");
             $("#area_title").text("Volos Area 2");
-            $("#area_pois").text(areas_Array[1]);
+            $("#area_pois").text(areas_Array[2][1]);
+            $("#area_rights").text("Rights:" + votes_Array[2][2]);
+            $("#area_wrongs").text("Wrongs:" + votes_Array[2][3]);
+            $("#area_summary").text("Total:" + votes_Array[2][4]);
         });
 
         google.maps.event.addListener(polyvolosarea2, "mouseout", function () {
             this.setOptions({fillColor: "#FF0000" });
             $("#data").css("background-color","transparent");
             $("#area_title").text("Area");
+            $("#area_pois").text("");
+            $("#area_rights").text("Rights:");
+            $("#area_wrongs").text("Wrongs:");
+            $("#area_summary").text("Total:");
         });
 
         var volosarea3 = [new google.maps.LatLng(39.368850, 22.933751), new google.maps.LatLng(39.366146, 22.931284), new google.maps.LatLng(39.363193, 22.930983), new google.maps.LatLng(39.358417, 22.932996), new google.maps.LatLng(39.360691, 22.939063), new google.maps.LatLng(39.367192, 22.935811), new google.maps.LatLng(39.368850, 22.933751)]
@@ -66,13 +83,21 @@
             this.setOptions({fillColor: "#00FF00" });
             $("#data").css("background-color","#ADFF2F");
             $("#area_title").text("Volos Area 3");
-            $("#area_pois").text(areas_Array[2]);
+            $("#area_pois").text(areas_Array[3][1]);
+            $("#area_rights").text("Rights:" + votes_Array[3][2]);
+            $("#area_wrongs").text("Wrongs:" + votes_Array[3][3]);
+            $("#area_summary").text("Total:" + votes_Array[3][4]);
+
         });
 
         google.maps.event.addListener(polyvolosarea3, "mouseout", function () {
             this.setOptions({fillColor: "#FF0000" });
             $("#data").css("background-color","transparent");
             $("#area_title").text("Area");
+            $("#area_pois").text("");
+            $("#area_rights").text("Rights:");
+            $("#area_wrongs").text("Wrongs:");
+            $("#area_summary").text("Total:");
         });
         polyvolosarea3.setMap(map);
 
@@ -82,13 +107,20 @@
             this.setOptions({fillColor: "#00FF00" });
             $("#data").css("background-color","#ADFF2F");
             $("#area_title").text("Volos Area 4");
-            $("#area_pois").text(areas_Array[3]);
+            $("#area_pois").text(areas_Array[4][1]);
+            $("#area_rights").text("Rights:" + votes_Array[4][2]);
+            $("#area_wrongs").text("Wrongs:" + votes_Array[4][3]);
+            $("#area_summary").text("Total:" + votes_Array[4][4]);
         });
 
         google.maps.event.addListener(polyvolosarea4, "mouseout", function () {
             this.setOptions({fillColor: "#FF0000" });
             $("#data").css("background-color","transparent");
             $("#area_title").text("Area");
+            $("#area_pois").text("");
+            $("#area_rights").text("Rights:");
+            $("#area_wrongs").text("Wrongs:");
+            $("#area_summary").text("Total:");
         });
         polyvolosarea4.setMap(map);
 
@@ -98,13 +130,20 @@
             this.setOptions({fillColor: "#00FF00" });
             $("#data").css("background-color","#ADFF2F");
             $("#area_title").text("Volos Area 5");
-            $("#area_pois").text(areas_Array[4]);
+            $("#area_pois").text(areas_Array[5][1]);
+            $("#area_rights").text("Rights:" + votes_Array[5][2]);
+            $("#area_wrongs").text("Wrongs:" + votes_Array[5][3]);
+            $("#area_summary").text("Total:" + votes_Array[5][4]);
         });
 
         google.maps.event.addListener(polyvolosarea5, "mouseout", function () {
             this.setOptions({fillColor: "#FF0000" });
             $("#data").css("background-color","transparent");
             $("#area_title").text("Area");
+            $("#area_pois").text("");
+            $("#area_rights").text("Rights:");
+            $("#area_wrongs").text("Wrongs:");
+            $("#area_summary").text("Total:");
         });
         polyvolosarea5.setMap(map);
 
@@ -114,13 +153,20 @@
             this.setOptions({fillColor: "#00FF00" });
             $("#data").css("background-color","#ADFF2F");
             $("#area_title").text("Volos Area 6");
-            $("#area_pois").text(areas_Array[5]);
+            $("#area_pois").text(areas_Array[6][1]);
+            $("#area_rights").text("Rights:" + votes_Array[6][2]);
+            $("#area_wrongs").text("Wrongs:" + votes_Array[6][3]);
+            $("#area_summary").text("Total:" + votes_Array[6][4]);
         });
 
         google.maps.event.addListener(polyvolosarea6, "mouseout", function () {
             this.setOptions({fillColor: "#FF0000" });
             $("#data").css("background-color","transparent");
             $("#area_title").text("Area");
+            $("#area_pois").text("");
+            $("#area_rights").text("Rights:");
+            $("#area_wrongs").text("Wrongs:");
+            $("#area_summary").text("Total:");
         });
         polyvolosarea6.setMap(map);
 
@@ -130,13 +176,20 @@
             this.setOptions({fillColor: "#00FF00" });
             $("#data").css("background-color","#ADFF2F");
             $("#area_title").text("Volos Area 7");
-            $("#area_pois").text(areas_Array[6]);
+            $("#area_pois").text(areas_Array[7][1]);
+            $("#area_rights").text("Rights:" + votes_Array[7][2]);
+            $("#area_wrongs").text("Wrongs:" + votes_Array[7][3]);
+            $("#area_summary").text("Total:" + votes_Array[7][4]);
         });
 
         google.maps.event.addListener(polyvolosarea7, "mouseout", function () {
             this.setOptions({fillColor: "#FF0000" });
             $("#data").css("background-color","transparent");
             $("#area_title").text("Area");
+            $("#area_pois").text("");
+            $("#area_rights").text("Rights:");
+            $("#area_wrongs").text("Wrongs:");
+            $("#area_summary").text("Total:");
         });
         polyvolosarea7.setMap(map);
 
@@ -146,13 +199,20 @@
             this.setOptions({fillColor: "#00FF00" });
             $("#data").css("background-color","#ADFF2F");
             $("#area_title").text("Volos Area 8");
-            $("#area_pois").text(areas_Array[7]);
+            $("#area_pois").text(areas_Array[8][1]);
+            $("#area_rights").text("Rights:" + votes_Array[8][2]);
+            $("#area_wrongs").text("Wrongs:" + votes_Array[8][3]);
+            $("#area_summary").text("Total:" + votes_Array[8][4]);
         });
 
         google.maps.event.addListener(polyvolosarea8, "mouseout", function () {
             this.setOptions({fillColor: "#FF0000" });
             $("#data").css("background-color","transparent");
             $("#area_title").text("Area");
+            $("#area_pois").text("");
+            $("#area_rights").text("Rights:");
+            $("#area_wrongs").text("Wrongs:");
+            $("#area_summary").text("Total:");
         });
         polyvolosarea8.setMap(map);
 
@@ -162,13 +222,20 @@
             this.setOptions({fillColor: "#00FF00" });
             $("#data").css("background-color","#ADFF2F");
             $("#area_title").text("Volos Area 9");
-            $("#area_pois").text(areas_Array[8]);
+            $("#area_pois").text(areas_Array[9][1]);
+            $("#area_rights").text("Rights:" + votes_Array[9][2]);
+            $("#area_wrongs").text("Wrongs:" + votes_Array[9][3]);
+            $("#area_summary").text("Total:" + votes_Array[9][4]);
         });
 
         google.maps.event.addListener(polyvolosarea9, "mouseout", function () {
             this.setOptions({fillColor: "#FF0000" });
             $("#data").css("background-color","transparent");
             $("#area_title").text("Area");
+            $("#area_pois").text("");
+            $("#area_rights").text("Rights:");
+            $("#area_wrongs").text("Wrongs:");
+            $("#area_summary").text("Total:");
         });
         polyvolosarea9.setMap(map);
 
@@ -178,13 +245,20 @@
             this.setOptions({fillColor: "#00FF00" });
             $("#data").css("background-color","#ADFF2F");
             $("#area_title").text("Volos Area 10");
-            $("#area_pois").text(areas_Array[9]);
+            $("#area_pois").text(areas_Array[10][1]);
+            $("#area_rights").text("Rights:" + votes_Array[10][2]);
+            $("#area_wrongs").text("Wrongs:" + votes_Array[10][3]);
+            $("#area_summary").text("Total:" + votes_Array[10][4]);
         });
 
         google.maps.event.addListener(polyvolosarea10, "mouseout", function () {
             this.setOptions({fillColor: "#FF0000" });
             $("#data").css("background-color","transparent");
             $("#area_title").text("Area");
+            $("#area_pois").text("");
+            $("#area_rights").text("Rights:");
+            $("#area_wrongs").text("Wrongs:");
+            $("#area_summary").text("Total:");
         });
 
         polyvolosarea10.setMap(map);
@@ -195,13 +269,20 @@
             this.setOptions({fillColor: "#00FF00" });
             $("#data").css("background-color","#ADFF2F");
             $("#area_title").text("Volos Area 11");
-            $("#area_pois").text(areas_Array[10]);
+            $("#area_pois").text(areas_Array[11][1]);
+            $("#area_rights").text("Rights:" + votes_Array[11][2]);
+            $("#area_wrongs").text("Wrongs:" + votes_Array[11][3]);
+            $("#area_summary").text("Total:" + votes_Array[11][4]);
         });
 
         google.maps.event.addListener(polyvolosarea11, "mouseout", function () {
             this.setOptions({fillColor: "#FF0000" });
             $("#data").css("background-color","transparent");
             $("#area_title").text("Area");
+            $("#area_pois").text("");
+            $("#area_rights").text("Rights:");
+            $("#area_wrongs").text("Wrongs:");
+            $("#area_summary").text("Total:");
         });
 
         polyvolosarea11.setMap(map);
@@ -212,13 +293,20 @@
             this.setOptions({fillColor: "#00FF00" });
             $("#data").css("background-color","#ADFF2F");
             $("#area_title").text("Volos Area 12");
-            $("#area_pois").text(areas_Array[11]);
+            $("#area_pois").text(areas_Array[12][1]);
+            $("#area_rights").text("Rights:" + votes_Array[12][2]);
+            $("#area_wrongs").text("Wrongs:" + votes_Array[12][3]);
+            $("#area_summary").text("Total:" + votes_Array[12][4]);
         });
 
         google.maps.event.addListener(polyvolosarea12, "mouseout", function () {
             this.setOptions({fillColor: "#FF0000" });
             $("#data").css("background-color","transparent");
             $("#area_title").text("Area");
+            $("#area_pois").text("");
+            $("#area_rights").text("Rights:");
+            $("#area_wrongs").text("Wrongs:");
+            $("#area_summary").text("Total:");
         });
 
         polyvolosarea12.setMap(map);
@@ -229,13 +317,20 @@
             this.setOptions({fillColor: "#00FF00" });
             $("#data").css("background-color","#ADFF2F");
             $("#area_title").text("Volos Area 13");
-            $("#area_pois").text(areas_Array[12]);
+            $("#area_pois").text(areas_Array[13][1]);
+            $("#area_rights").text("Rights:" + votes_Array[13][2]);
+            $("#area_wrongs").text("Wrongs:" + votes_Array[13][3]);
+            $("#area_summary").text("Total:" + votes_Array[13][4]);
         });
 
         google.maps.event.addListener(polyvolosarea13, "mouseout", function () {
             this.setOptions({fillColor: "#FF0000" });
             $("#data").css("background-color","transparent");
             $("#area_title").text("Area");
+            $("#area_pois").text("");
+            $("#area_rights").text("Rights:");
+            $("#area_wrongs").text("Wrongs:");
+            $("#area_summary").text("Total:");
         });
 
         polyvolosarea13.setMap(map);
@@ -246,14 +341,20 @@
             this.setOptions({fillColor: "#00FF00" });
             $("#data").css("background-color","#ADFF2F");
             $("#area_title").text("Volos Area 14");
-            $("#area_pois").text(areas_Array[13]);
-
+            $("#area_pois").text(areas_Array[14][1]);
+            $("#area_rights").text("Rights:" + votes_Array[14][2]);
+            $("#area_wrongs").text("Wrongs:" + votes_Array[14][3]);
+            $("#area_summary").text("Total:" + votes_Array[14][4]);
         });
 
         google.maps.event.addListener(polyvolosarea14, "mouseout", function () {
             this.setOptions({fillColor: "#FF0000" });
             $("#data").css("background-color","transparent");
             $("#area_title").text("Area");
+            $("#area_pois").text("");
+            $("#area_rights").text("Rights:");
+            $("#area_wrongs").text("Wrongs:");
+            $("#area_summary").text("Total:");
         });
 
         polyvolosarea14.setMap(map);
@@ -264,85 +365,195 @@
             return $.getJSON(regions, function (json) {
                 $.each(json, function (id, keys) {
                     $.each(keys["points"], function (id, keys) {
-                        if(keys.data.recognizability > 0.5){
-                            var marker = new google.maps.Marker({ position: new google.maps.LatLng(keys.lat,keys.lon), map: map, title:"Poi!" });
-                            if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea1))
-                                markers_Array[0] = markers_Array[0] + 1;
-                            if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea2))
-                                markers_Array[1] = markers_Array[1] + 1;
-                            if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea3))
-                                markers_Array[2] = markers_Array[2] + 1;
-                            if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea4))
-                                markers_Array[3] = markers_Array[3] + 1;
-                            if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea5))
-                                markers_Array[4] = markers_Array[4] + 1;
-                            if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea6))
-                                markers_Array[5] = markers_Array[5] + 1;
-                            if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea7))
-                                markers_Array[6] = markers_Array[6] + 1;
-                            if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea8))
-                                markers_Array[7] = markers_Array[7] + 1;
-                            if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea9))
-                                markers_Array[8] = markers_Array[8] + 1;
-                            if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea10))
-                                markers_Array[9] = markers_Array[9] + 1;
-                            if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea11))
-                                markers_Array[10] = markers_Array[10] + 1;
-                            if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea12))
-                                markers_Array[11] = markers_Array[11] + 1;
-                            if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea13))
-                                markers_Array[12] = markers_Array[12]+ 1;
-                            if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea14))
-                                markers_Array[13] = markers_Array[13] + 1;
-                        }
-                        if(google.maps.geometry.poly.containsLocation(new google.maps.LatLng(keys.lat,keys.lon), polyvolosarea1))
-                            areas_Array[0] = areas_Array[0] + 1;
-                        if(google.maps.geometry.poly.containsLocation(new google.maps.LatLng(keys.lat,keys.lon), polyvolosarea2))
-                            areas_Array[1] = areas_Array[1] + 1;
-                        if(google.maps.geometry.poly.containsLocation(new google.maps.LatLng(keys.lat,keys.lon), polyvolosarea3))
-                            areas_Array[2] = areas_Array[2] + 1;
-                        if(google.maps.geometry.poly.containsLocation(new google.maps.LatLng(keys.lat,keys.lon), polyvolosarea4))
-                            areas_Array[3] = areas_Array[3] + 1;
-                        if(google.maps.geometry.poly.containsLocation(new google.maps.LatLng(keys.lat,keys.lon), polyvolosarea5))
-                            areas_Array[4] = areas_Array[4] + 1;
-                        if(google.maps.geometry.poly.containsLocation(new google.maps.LatLng(keys.lat,keys.lon), polyvolosarea6))
-                            areas_Array[5] = areas_Array[5] + 1;
-                        if(google.maps.geometry.poly.containsLocation(new google.maps.LatLng(keys.lat,keys.lon), polyvolosarea7))
-                            areas_Array[6] = areas_Array[6] + 1;
-                        if(google.maps.geometry.poly.containsLocation(new google.maps.LatLng(keys.lat,keys.lon), polyvolosarea8))
-                            areas_Array[7] = areas_Array[7] + 1;
-                        if(google.maps.geometry.poly.containsLocation(new google.maps.LatLng(keys.lat,keys.lon), polyvolosarea9))
-                            areas_Array[8] = areas_Array[8] + 1;
-                        if(google.maps.geometry.poly.containsLocation(new google.maps.LatLng(keys.lat,keys.lon), polyvolosarea10))
-                            areas_Array[9] = areas_Array[9] + 1;
-                        if(google.maps.geometry.poly.containsLocation(new google.maps.LatLng(keys.lat,keys.lon), polyvolosarea11))
-                            areas_Array[10] = areas_Array[10] + 1;
-                        if(google.maps.geometry.poly.containsLocation(new google.maps.LatLng(keys.lat,keys.lon), polyvolosarea12))
-                            areas_Array[11] = areas_Array[11] + 1;
-                        if(google.maps.geometry.poly.containsLocation(new google.maps.LatLng(keys.lat,keys.lon), polyvolosarea13))
-                            areas_Array[12] = areas_Array[12]+ 1;
-                        if(google.maps.geometry.poly.containsLocation(new google.maps.LatLng(keys.lat,keys.lon), polyvolosarea14))
-                            areas_Array[13] = areas_Array[13] + 1;
+                        if(keys.data.recognizability > 0.2 && (keys.data.right + keys.data.wrong) > 2 ){
 
+                            var contentString =
+                                    "Recognizability: " + Math.round(keys.data.recognizability * 100)/100 +  " <br/> Voted: " + (keys.data.right + keys.data.wrong).toString();
+
+                            var infowindow = new google.maps.InfoWindow({
+                                content: contentString
+                            });
+                            var marker = new google.maps.Marker({ position: new google.maps.LatLng(keys.lat,keys.lon), map: map, title:"Important Poi!" });
+
+                            google.maps.event.addListener(marker, 'click', function() {infowindow.open(map,marker);});
+                            if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea1))
+                                markers_Array[1][1]++;
+                            if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea2))
+                                markers_Array[2][1]++;
+                            if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea3))
+                                markers_Array[3][1]++;
+                            if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea4))
+                                markers_Array[4][1]++;
+                            if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea5))
+                                markers_Array[5][1]++;
+                            if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea6))
+                                markers_Array[6][1]++;
+                            if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea7))
+                                markers_Array[7][1]++;
+                            if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea8))
+                                markers_Array[8][1]++;
+                            if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea9))
+                                markers_Array[9][1]++;
+                            if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea10))
+                                markers_Array[10][1]++;
+                            if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea11))
+                                markers_Array[11][1]++;
+                            if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea12))
+                                markers_Array[12][1]++;
+                            if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea13))
+                                markers_Array[13][1]++;
+                            if(google.maps.geometry.poly.containsLocation(marker.position, polyvolosarea14))
+                                markers_Array[14][1]++;
+                        }
+                        if (google.maps.geometry.poly.containsLocation(new google.maps.LatLng(keys.lat, keys.lon), polyvolosarea1)) {
+                            areas_Array[1][1]++;
+                            votes_Array[1][2] += keys.data.right;
+                            votes_Array[1][3] += keys.data.wrong;
+                            votes_Array[1][4] += (keys.data.right + keys.data.wrong);
+                            total_votes += (keys.data.right + keys.data.wrong);
+                            total_rights += keys.data.right;
+                            total_wrongs += keys.data.wrong;
+                        }
+                        if (google.maps.geometry.poly.containsLocation(new google.maps.LatLng(keys.lat, keys.lon), polyvolosarea2)) {
+                            areas_Array[2][1]++;
+                            votes_Array[2][2] += keys.data.right;
+                            votes_Array[2][3] += keys.data.wrong;
+                            votes_Array[2][4] += (keys.data.right + keys.data.wrong);
+                            total_votes += (keys.data.right + keys.data.wrong);
+                            total_rights += keys.data.right;
+                            total_wrongs += keys.data.wrong;
+                        }
+                        if (google.maps.geometry.poly.containsLocation(new google.maps.LatLng(keys.lat, keys.lon), polyvolosarea3)) {
+                            areas_Array[3][1]++;
+                            votes_Array[3][2] += keys.data.right;
+                            votes_Array[3][3] += keys.data.wrong;
+                            votes_Array[3][4] += (keys.data.right + keys.data.wrong);
+                            total_votes += (keys.data.right + keys.data.wrong);
+                            total_rights += keys.data.right;
+                            total_wrongs += keys.data.wrong;
+                        }
+                        if (google.maps.geometry.poly.containsLocation(new google.maps.LatLng(keys.lat, keys.lon), polyvolosarea4)) {
+                            areas_Array[4][1]++;
+                            votes_Array[4][2] += keys.data.right;
+                            votes_Array[4][3] += keys.data.wrong;
+                            votes_Array[4][4] += (keys.data.right + keys.data.wrong);
+                            total_votes += (keys.data.right + keys.data.wrong);
+                            total_rights += keys.data.right;
+                            total_wrongs += keys.data.wrong;
+                        }
+                        if (google.maps.geometry.poly.containsLocation(new google.maps.LatLng(keys.lat, keys.lon), polyvolosarea5)) {
+                            areas_Array[5][1]++;
+                            votes_Array[5][2] += keys.data.right;
+                            votes_Array[5][3] += keys.data.wrong;
+                            votes_Array[5][4] += (keys.data.right + keys.data.wrong);
+                            total_votes += (keys.data.right + keys.data.wrong);
+                            total_rights += keys.data.right;
+                            total_wrongs += keys.data.wrong;
+                        }
+                        if (google.maps.geometry.poly.containsLocation(new google.maps.LatLng(keys.lat, keys.lon), polyvolosarea6)) {
+                            areas_Array[6][1]++;
+                            votes_Array[6][2] += keys.data.right;
+                            votes_Array[6][3] += keys.data.wrong;
+                            votes_Array[6][4] += (keys.data.right + keys.data.wrong);
+                            total_votes += (keys.data.right + keys.data.wrong);
+                            total_rights += keys.data.right;
+                            total_wrongs += keys.data.wrong;
+                        }
+                        if (google.maps.geometry.poly.containsLocation(new google.maps.LatLng(keys.lat, keys.lon), polyvolosarea7)) {
+                            areas_Array[7][1]++;
+                            votes_Array[7][2] += keys.data.right;
+                            votes_Array[7][3] += keys.data.wrong;
+                            votes_Array[7][4] += (keys.data.right + keys.data.wrong);
+                            total_votes += (keys.data.right + keys.data.wrong);
+                            total_rights += keys.data.right;
+                            total_wrongs += keys.data.wrong;
+                        }
+                        if (google.maps.geometry.poly.containsLocation(new google.maps.LatLng(keys.lat, keys.lon), polyvolosarea8)) {
+                            areas_Array[8][1]++;
+                            votes_Array[8][2] += keys.data.right;
+                            votes_Array[8][3] += keys.data.wrong;
+                            votes_Array[8][4] += (keys.data.right + keys.data.wrong);
+                            total_votes += (keys.data.right + keys.data.wrong);
+                            total_rights += keys.data.right;
+                            total_wrongs += keys.data.wrong;
+                        }
+                        if (google.maps.geometry.poly.containsLocation(new google.maps.LatLng(keys.lat, keys.lon), polyvolosarea9)) {
+                            areas_Array[9][1]++;
+                            votes_Array[9][2] += keys.data.right;
+                            votes_Array[9][3] += keys.data.wrong;
+                            votes_Array[9][4] += (keys.data.right + keys.data.wrong);
+                            total_votes += (keys.data.right + keys.data.wrong);
+                            total_rights += keys.data.right;
+                            total_wrongs += keys.data.wrong;
+                        }
+                        if (google.maps.geometry.poly.containsLocation(new google.maps.LatLng(keys.lat, keys.lon), polyvolosarea10)) {
+                            areas_Array[10][1]++;
+                            votes_Array[10][2] += keys.data.right;
+                            votes_Array[10][3] += keys.data.wrong;
+                            votes_Array[10][4] += (keys.data.right + keys.data.wrong);
+                            total_votes += (keys.data.right + keys.data.wrong);
+                            total_rights += keys.data.right;
+                            total_wrongs += keys.data.wrong;
+                        }
+                        if (google.maps.geometry.poly.containsLocation(new google.maps.LatLng(keys.lat, keys.lon), polyvolosarea11)) {
+                            areas_Array[11][1]++;
+                            votes_Array[11][2] += keys.data.right;
+                            votes_Array[11][3] += keys.data.wrong;
+                            votes_Array[11][4] += (keys.data.right + keys.data.wrong);
+                            total_votes += (keys.data.right + keys.data.wrong);
+                            total_rights += keys.data.right;
+                            total_wrongs += keys.data.wrong;
+                        }
+                        if (google.maps.geometry.poly.containsLocation(new google.maps.LatLng(keys.lat, keys.lon), polyvolosarea12)) {
+                            areas_Array[12][1]++;
+                            votes_Array[12][2] += keys.data.right;
+                            votes_Array[12][3] += keys.data.wrong;
+                            votes_Array[12][4] += (keys.data.right + keys.data.wrong);
+                            total_votes += (keys.data.right + keys.data.wrong);
+                            total_rights += keys.data.right;
+                            total_wrongs += keys.data.wrong;
+                        }
+                        if (google.maps.geometry.poly.containsLocation(new google.maps.LatLng(keys.lat, keys.lon), polyvolosarea13)) {
+                            areas_Array[13][1]++;
+                            votes_Array[13][2] += keys.data.right;
+                            votes_Array[13][3] += keys.data.wrong;
+                            votes_Array[13][4] += (keys.data.right + keys.data.wrong);
+                            total_votes += (keys.data.right + keys.data.wrong);
+                            total_rights += keys.data.right;
+                            total_wrongs += keys.data.wrong;
+                        }
+                        if (google.maps.geometry.poly.containsLocation(new google.maps.LatLng(keys.lat, keys.lon), polyvolosarea14)) {
+                            areas_Array[14][1]++;
+                            votes_Array[14][2] += keys.data.right;
+                            votes_Array[14][3] += keys.data.wrong;
+                            votes_Array[14][4] += (keys.data.right + keys.data.wrong);
+                            total_votes += (keys.data.right + keys.data.wrong);
+                            total_rights += keys.data.right;
+                            total_wrongs += keys.data.wrong;
+                        }
                     });
                     // Create the data table.
-                    var data = new google.visualization.arrayToDataTable([['A1','A2','A3','A4','A5','A6','A7','A8','A9','A10','A11','A12','A13','A14'],areas_Array]);
+                    var data = new google.visualization.arrayToDataTable(areas_Array);
 
                     // Set chart options
-                    var options = { title: 'POI in Area'};
+                    var options = { title: 'POI in each Area',legend: { position: "none" }};
 
                     // Instantiate and draw our chart, passing in some options.
                     var chart = new google.visualization.ColumnChart(document.getElementById('overall'));
                     chart.draw(data, options);
                     // Create the data table.
-                    var data = new google.visualization.arrayToDataTable([['A1','A2','A3','A4','A5','A6','A7','A8','A9','A10','A11','A12','A13','A14'],markers_Array]);
+                    var data = new google.visualization.arrayToDataTable(markers_Array);
 
                     // Set chart options
-                    var options = { title: 'Recognizable POI in Area'};
+                    var options = { title: 'Recognizable POI in each Area, over 50%', legend: { position: "none" }};
 
                     // Instantiate and draw our chart, passing in some options.
                     var chart = new google.visualization.ColumnChart(document.getElementById('recognizable'));
                     chart.draw(data, options);
+
+                    $("#summary").text("Total Votes: " + total_votes/5);
+                    $("#rights").text("Total Rights: " + total_rights);
+                    $("#wrongs").text("Total Wrongs: " + total_wrongs);
                 });
             });
         });
