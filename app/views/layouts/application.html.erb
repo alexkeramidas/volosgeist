@@ -25,7 +25,9 @@
     total_wrongs = 0;
 
     function initialize() {
-
+        $("#area_rights").text("Rights:");
+        $("#area_wrongs").text("Wrongs:");
+        $("#area_summary").text("Total:");
         var volosCenter = new google.maps.LatLng(39.365265, 22.950403);
         var mapOptions = { zoom: 14, center: volosCenter }
         var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
@@ -34,7 +36,7 @@
         polyvolosarea1 = new google.maps.Polygon({paths: volosarea1,strokeColor: '#FF0000',strokeOpacity: 0.8,strokeWeight: 2,fillColor: '#FF0000',fillOpacity: 0.35 });
         google.maps.event.addListener(polyvolosarea1, "mouseover", function () {
             this.setOptions({fillColor: "#00FF00"});
-            $("#data").css("background-color","#ADFF2F");
+            $("#data").css("background-color","#79FF79");
             $("#area_title").text("Volos Area 1");
             $("#area_pois").text(areas_Array[1][1]);
             $("#area_rights").text("Rights:" + votes_Array[1][2]);
@@ -44,8 +46,8 @@
 
         google.maps.event.addListener(polyvolosarea1, "mouseout", function () {
             this.setOptions({ fillColor: "#FF0000" });
-            $("#data").css("background-color","transparent");
-            $("#area_title").text("Area");
+            $("#data").css("background-color","#3DFF3D");
+            $("#area_title").text("");
             $("#area_pois").text("");
             $("#area_rights").text("Rights:");
             $("#area_wrongs").text("Wrongs:");
@@ -59,7 +61,7 @@
 
         google.maps.event.addListener(polyvolosarea2, "mouseover", function () {
             this.setOptions({fillColor: "#00FF00" });
-            $("#data").css("background-color","#ADFF2F");
+            $("#data").css("background-color","#79FF79");
             $("#area_title").text("Volos Area 2");
             $("#area_pois").text(areas_Array[2][1]);
             $("#area_rights").text("Rights:" + votes_Array[2][2]);
@@ -69,8 +71,8 @@
 
         google.maps.event.addListener(polyvolosarea2, "mouseout", function () {
             this.setOptions({fillColor: "#FF0000" });
-            $("#data").css("background-color","transparent");
-            $("#area_title").text("Area");
+            $("#data").css("background-color","#3DFF3D");
+            $("#area_title").text("");
             $("#area_pois").text("");
             $("#area_rights").text("Rights:");
             $("#area_wrongs").text("Wrongs:");
@@ -81,7 +83,7 @@
         polyvolosarea3 = new google.maps.Polygon({paths: volosarea3, strokeColor: '#FF0000', strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#FF0000', fillOpacity: 0.35 });
         google.maps.event.addListener(polyvolosarea3, "mouseover", function () {
             this.setOptions({fillColor: "#00FF00" });
-            $("#data").css("background-color","#ADFF2F");
+            $("#data").css("background-color","#79FF79");
             $("#area_title").text("Volos Area 3");
             $("#area_pois").text(areas_Array[3][1]);
             $("#area_rights").text("Rights:" + votes_Array[3][2]);
@@ -92,8 +94,8 @@
 
         google.maps.event.addListener(polyvolosarea3, "mouseout", function () {
             this.setOptions({fillColor: "#FF0000" });
-            $("#data").css("background-color","transparent");
-            $("#area_title").text("Area");
+            $("#data").css("background-color","#3DFF3D");
+            $("#area_title").text("");
             $("#area_pois").text("");
             $("#area_rights").text("Rights:");
             $("#area_wrongs").text("Wrongs:");
@@ -105,7 +107,7 @@
         polyvolosarea4 = new google.maps.Polygon({paths: volosarea4, strokeColor: '#FF0000', strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#FF0000', fillOpacity: 0.35 });
         google.maps.event.addListener(polyvolosarea4, "mouseover", function () {
             this.setOptions({fillColor: "#00FF00" });
-            $("#data").css("background-color","#ADFF2F");
+            $("#data").css("background-color","#79FF79");
             $("#area_title").text("Volos Area 4");
             $("#area_pois").text(areas_Array[4][1]);
             $("#area_rights").text("Rights:" + votes_Array[4][2]);
@@ -115,8 +117,8 @@
 
         google.maps.event.addListener(polyvolosarea4, "mouseout", function () {
             this.setOptions({fillColor: "#FF0000" });
-            $("#data").css("background-color","transparent");
-            $("#area_title").text("Area");
+            $("#data").css("background-color","#3DFF3D");
+            $("#area_title").text("");
             $("#area_pois").text("");
             $("#area_rights").text("Rights:");
             $("#area_wrongs").text("Wrongs:");
@@ -128,7 +130,7 @@
         polyvolosarea5 = new google.maps.Polygon({paths: volosarea5, strokeColor: '#FF0000', strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#FF0000', fillOpacity: 0.35 });
         google.maps.event.addListener(polyvolosarea5, "mouseover", function () {
             this.setOptions({fillColor: "#00FF00" });
-            $("#data").css("background-color","#ADFF2F");
+            $("#data").css("background-color","#79FF79");
             $("#area_title").text("Volos Area 5");
             $("#area_pois").text(areas_Array[5][1]);
             $("#area_rights").text("Rights:" + votes_Array[5][2]);
@@ -138,8 +140,8 @@
 
         google.maps.event.addListener(polyvolosarea5, "mouseout", function () {
             this.setOptions({fillColor: "#FF0000" });
-            $("#data").css("background-color","transparent");
-            $("#area_title").text("Area");
+            $("#data").css("background-color","#3DFF3D");
+            $("#area_title").text("");
             $("#area_pois").text("");
             $("#area_rights").text("Rights:");
             $("#area_wrongs").text("Wrongs:");
@@ -151,7 +153,7 @@
         polyvolosarea6 = new google.maps.Polygon({paths: volosarea6, strokeColor: '#FF0000', strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#FF0000', fillOpacity: 0.35});
         google.maps.event.addListener(polyvolosarea6, "mouseover", function () {
             this.setOptions({fillColor: "#00FF00" });
-            $("#data").css("background-color","#ADFF2F");
+            $("#data").css("background-color","#79FF79");
             $("#area_title").text("Volos Area 6");
             $("#area_pois").text(areas_Array[6][1]);
             $("#area_rights").text("Rights:" + votes_Array[6][2]);
@@ -161,8 +163,8 @@
 
         google.maps.event.addListener(polyvolosarea6, "mouseout", function () {
             this.setOptions({fillColor: "#FF0000" });
-            $("#data").css("background-color","transparent");
-            $("#area_title").text("Area");
+            $("#data").css("background-color","#3DFF3D");
+            $("#area_title").text("");
             $("#area_pois").text("");
             $("#area_rights").text("Rights:");
             $("#area_wrongs").text("Wrongs:");
@@ -174,7 +176,7 @@
         polyvolosarea7 = new google.maps.Polygon({paths: volosarea7, strokeColor: '#FF0000', strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#FF0000', fillOpacity: 0.35});
         google.maps.event.addListener(polyvolosarea7, "mouseover", function () {
             this.setOptions({fillColor: "#00FF00" });
-            $("#data").css("background-color","#ADFF2F");
+            $("#data").css("background-color","#79FF79");
             $("#area_title").text("Volos Area 7");
             $("#area_pois").text(areas_Array[7][1]);
             $("#area_rights").text("Rights:" + votes_Array[7][2]);
@@ -184,8 +186,8 @@
 
         google.maps.event.addListener(polyvolosarea7, "mouseout", function () {
             this.setOptions({fillColor: "#FF0000" });
-            $("#data").css("background-color","transparent");
-            $("#area_title").text("Area");
+            $("#data").css("background-color","#3DFF3D");
+            $("#area_title").text("");
             $("#area_pois").text("");
             $("#area_rights").text("Rights:");
             $("#area_wrongs").text("Wrongs:");
@@ -197,7 +199,7 @@
         polyvolosarea8 = new google.maps.Polygon({paths: volosarea8, strokeColor: '#FF0000', strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#FF0000', fillOpacity: 0.35 });
         google.maps.event.addListener(polyvolosarea8, "mouseover", function () {
             this.setOptions({fillColor: "#00FF00" });
-            $("#data").css("background-color","#ADFF2F");
+            $("#data").css("background-color","#79FF79");
             $("#area_title").text("Volos Area 8");
             $("#area_pois").text(areas_Array[8][1]);
             $("#area_rights").text("Rights:" + votes_Array[8][2]);
@@ -207,8 +209,8 @@
 
         google.maps.event.addListener(polyvolosarea8, "mouseout", function () {
             this.setOptions({fillColor: "#FF0000" });
-            $("#data").css("background-color","transparent");
-            $("#area_title").text("Area");
+            $("#data").css("background-color","#3DFF3D");
+            $("#area_title").text("");
             $("#area_pois").text("");
             $("#area_rights").text("Rights:");
             $("#area_wrongs").text("Wrongs:");
@@ -220,7 +222,7 @@
         polyvolosarea9 = new google.maps.Polygon({paths: volosarea9, strokeColor: '#FF0000', strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#FF0000', fillOpacity: 0.35 });
         google.maps.event.addListener(polyvolosarea9, "mouseover", function () {
             this.setOptions({fillColor: "#00FF00" });
-            $("#data").css("background-color","#ADFF2F");
+            $("#data").css("background-color","#79FF79");
             $("#area_title").text("Volos Area 9");
             $("#area_pois").text(areas_Array[9][1]);
             $("#area_rights").text("Rights:" + votes_Array[9][2]);
@@ -230,8 +232,8 @@
 
         google.maps.event.addListener(polyvolosarea9, "mouseout", function () {
             this.setOptions({fillColor: "#FF0000" });
-            $("#data").css("background-color","transparent");
-            $("#area_title").text("Area");
+            $("#data").css("background-color","#3DFF3D");
+            $("#area_title").text("");
             $("#area_pois").text("");
             $("#area_rights").text("Rights:");
             $("#area_wrongs").text("Wrongs:");
@@ -243,7 +245,7 @@
         polyvolosarea10 = new google.maps.Polygon({paths: volosarea10, strokeColor: '#FF0000', strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#FF0000', fillOpacity: 0.35 });
         google.maps.event.addListener(polyvolosarea10, "mouseover", function () {
             this.setOptions({fillColor: "#00FF00" });
-            $("#data").css("background-color","#ADFF2F");
+            $("#data").css("background-color","#79FF79");
             $("#area_title").text("Volos Area 10");
             $("#area_pois").text(areas_Array[10][1]);
             $("#area_rights").text("Rights:" + votes_Array[10][2]);
@@ -253,8 +255,8 @@
 
         google.maps.event.addListener(polyvolosarea10, "mouseout", function () {
             this.setOptions({fillColor: "#FF0000" });
-            $("#data").css("background-color","transparent");
-            $("#area_title").text("Area");
+            $("#data").css("background-color","#3DFF3D");
+            $("#area_title").text("");
             $("#area_pois").text("");
             $("#area_rights").text("Rights:");
             $("#area_wrongs").text("Wrongs:");
@@ -267,7 +269,7 @@
         polyvolosarea11 = new google.maps.Polygon({paths: volosarea11, strokeColor: '#FF0000', strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#FF0000', fillOpacity: 0.35 });
         google.maps.event.addListener(polyvolosarea11, "mouseover", function () {
             this.setOptions({fillColor: "#00FF00" });
-            $("#data").css("background-color","#ADFF2F");
+            $("#data").css("background-color","#79FF79");
             $("#area_title").text("Volos Area 11");
             $("#area_pois").text(areas_Array[11][1]);
             $("#area_rights").text("Rights:" + votes_Array[11][2]);
@@ -277,8 +279,8 @@
 
         google.maps.event.addListener(polyvolosarea11, "mouseout", function () {
             this.setOptions({fillColor: "#FF0000" });
-            $("#data").css("background-color","transparent");
-            $("#area_title").text("Area");
+            $("#data").css("background-color","#3DFF3D");
+            $("#area_title").text("");
             $("#area_pois").text("");
             $("#area_rights").text("Rights:");
             $("#area_wrongs").text("Wrongs:");
@@ -291,7 +293,7 @@
         polyvolosarea12 = new google.maps.Polygon({paths: volosarea12, strokeColor: '#FF0000', strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#FF0000', fillOpacity: 0.35 });
         google.maps.event.addListener(polyvolosarea12, "mouseover", function () {
             this.setOptions({fillColor: "#00FF00" });
-            $("#data").css("background-color","#ADFF2F");
+            $("#data").css("background-color","#79FF79");
             $("#area_title").text("Volos Area 12");
             $("#area_pois").text(areas_Array[12][1]);
             $("#area_rights").text("Rights:" + votes_Array[12][2]);
@@ -301,8 +303,8 @@
 
         google.maps.event.addListener(polyvolosarea12, "mouseout", function () {
             this.setOptions({fillColor: "#FF0000" });
-            $("#data").css("background-color","transparent");
-            $("#area_title").text("Area");
+            $("#data").css("background-color","#3DFF3D");
+            $("#area_title").text("");
             $("#area_pois").text("");
             $("#area_rights").text("Rights:");
             $("#area_wrongs").text("Wrongs:");
@@ -315,7 +317,7 @@
         polyvolosarea13 = new google.maps.Polygon({paths: volosarea13, strokeColor: '#FF0000', strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#FF0000', fillOpacity: 0.35 });
         google.maps.event.addListener(polyvolosarea13, "mouseover", function () {
             this.setOptions({fillColor: "#00FF00" });
-            $("#data").css("background-color","#ADFF2F");
+            $("#data").css("background-color","#79FF79");
             $("#area_title").text("Volos Area 13");
             $("#area_pois").text(areas_Array[13][1]);
             $("#area_rights").text("Rights:" + votes_Array[13][2]);
@@ -325,8 +327,8 @@
 
         google.maps.event.addListener(polyvolosarea13, "mouseout", function () {
             this.setOptions({fillColor: "#FF0000" });
-            $("#data").css("background-color","transparent");
-            $("#area_title").text("Area");
+            $("#data").css("background-color","#3DFF3D");
+            $("#area_title").text("");
             $("#area_pois").text("");
             $("#area_rights").text("Rights:");
             $("#area_wrongs").text("Wrongs:");
@@ -339,7 +341,7 @@
         polyvolosarea14 = new google.maps.Polygon({paths: volosarea14, strokeColor: '#FF0000', strokeOpacity: 0.8, strokeWeight: 2, fillColor: '#FF0000', fillOpacity: 0.35 });
         google.maps.event.addListener(polyvolosarea14, "mouseover", function () {
             this.setOptions({fillColor: "#00FF00" });
-            $("#data").css("background-color","#ADFF2F");
+            $("#data").css("background-color","#79FF79");
             $("#area_title").text("Volos Area 14");
             $("#area_pois").text(areas_Array[14][1]);
             $("#area_rights").text("Rights:" + votes_Array[14][2]);
@@ -349,8 +351,8 @@
 
         google.maps.event.addListener(polyvolosarea14, "mouseout", function () {
             this.setOptions({fillColor: "#FF0000" });
-            $("#data").css("background-color","transparent");
-            $("#area_title").text("Area");
+            $("#data").css("background-color","#3DFF3D");
+            $("#area_title").text("");
             $("#area_pois").text("");
             $("#area_rights").text("Rights:");
             $("#area_wrongs").text("Wrongs:");
@@ -532,24 +534,24 @@
                             total_wrongs += keys.data.wrong;
                         }
                     });
-                    // Create the data table.
-                    var data = new google.visualization.arrayToDataTable(areas_Array);
+                    // Create the data table for all POIS.
+                    var totalData = new google.visualization.arrayToDataTable(areas_Array);
 
                     // Set chart options
-                    var options = { title: 'POI in each Area',legend: { position: "none" }};
+                    var totalOptions = { title: 'POI in each Area',legend: { position: "none" }, backgroundColor: '#ACF5EC'};
 
                     // Instantiate and draw our chart, passing in some options.
                     var chart = new google.visualization.ColumnChart(document.getElementById('overall'));
-                    chart.draw(data, options);
-                    // Create the data table.
-                    var data = new google.visualization.arrayToDataTable(markers_Array);
+                    chart.draw(totalData , totalOptions );
+                    // Create the data table for Recognizable POIS.
+                    var reckonData = new google.visualization.arrayToDataTable(markers_Array);
 
                     // Set chart options
-                    var options = { title: 'Recognizable POI in each Area, over 50%', legend: { position: "none" }};
+                    var reckonOtions = { title: 'Recognizable POI in each Area, over 50%', legend: { position: "none" },backgroundColor: '#ACF5EC'};
 
                     // Instantiate and draw our chart, passing in some options.
                     var chart = new google.visualization.ColumnChart(document.getElementById('recognizable'));
-                    chart.draw(data, options);
+                    chart.draw(reckonData , reckonOtions );
 
                     $("#summary").text("Total Votes: " + total_votes/5);
                     $("#rights").text("Total Rights: " + total_rights);
